@@ -1,17 +1,34 @@
 <!DOCTYPE html>
+<!--Project name: Challenge 5-->
+<!--This site was created in an effort to demonstrate how to allow a user to login and manipulate items.-->
+<!--Jordan Dunlap-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
         <title>Login and Access Items Challenge</title>
+
+        <!--local css-->
         <link rel="stylesheet" type=text/css href="challenge5main.css"/>
+        <!--esri css-->
         <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
-        <script src="https://js.arcgis.com/4.15/"></script>
+        <!--arcGis javascript-->
+        <script src="https://js.arcgis.com/4.16/"></script>
+        <!--local javascript-->
         <script src="challenge5main.js"></script>
     </head>
     <body>
+        <div id="anonymousPanel">
+            <h4><span id="sign-in" class="action">Sign-In</span> to manage your items</h4>
+        </div>
+        
+        <div id="personalizedPanel">
+            <h4>Welcome <span id="userId"></span> &nbsp; -&nbsp;</h4>
+            <h5><span id="sign-out" class="action">Sign-out</span></h5>
+        </div>
 
-        <hi>ITEMS!</hi>
-        <H4>yay!</H4>
+        <!-- for the map -->
+        <div id="viewDiv"></div>
     </body>
 </html> 

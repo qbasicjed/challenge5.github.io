@@ -1,8 +1,32 @@
 html{
-    background-color: rgb(8, 7, 92);
-    color: rgb(180, 252, 255);
+    background-color: rgb(1, 0, 48);
+    color: rgb(180, 255, 255);
 }
 title{
     text-decoration: underline;
     
 }
+div{
+    display: none;
+}
+
+
+#personalizedPanel{
+    padding: 5px; 
+    text-align: center;
+}
+#anonymousPanel {
+    display: block;
+    padding: 5px; 
+    text-align: center;
+}
+#userId {
+    font-weight: bold;
+}
+
+
+.action {
+    color: rgb(0, 140, 255);
+    cursor: pointer;
+    text-decoration: underline;
+  }
