@@ -26,14 +26,20 @@ require([
             //lookup later//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             identityManager.registerOAuthInfos([info]);
 
-            // send users to arcgis.com to login
+            // in the event that #sign-in is clicked
             on(dom.byId("sign-in"), "click", function() {
+                //get the credentials from the portal
+                //This sends the user to the ArcGIS website to sign in.
                 identityManager.getCredential(portalUrl);
+                var userIdjs = document.getElementById('userId');
+                userIdjs.text = getUserInfo(identityManager.getCredential());
             });
 
-            // log out and reload
+            // in the event that #sign-out is clicked
             on(dom.byId("sign-out"), "click", function() {
+                //forget the credentials
                 identityManager.destroyCredentials();
+                //reload the window
                 window.location.reload();
             });
 
