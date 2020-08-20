@@ -1,6 +1,7 @@
 
 require([
       "esri/portal/Portal",
+      "esri/portal/PortalQueryParams",
       "esri/identity/OAuthInfo",
       "esri/identity/IdentityManager",
       "esri/Map",
@@ -11,7 +12,7 @@ require([
       "dojo/on",
       "dojo/dom"
     ], function(
-        Portal, OAuthInfo, identityManager, Map, MapView, MapImageLayer,
+        Portal, PortalQueryParams, OAuthInfo, identityManager, Map, MapView, MapImageLayer,
         domStyle, domAttr, on, dom) {
 
             //specify portal
@@ -25,14 +26,14 @@ require([
         
             //lookup later//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             identityManager.registerOAuthInfos([info]);
+            //^-- another source referred to the object as esriId
 
             // in the event that #sign-in is clicked
             on(dom.byId("sign-in"), "click", function() {
                 //get the credentials from the portal
                 //This sends the user to the ArcGIS website to sign in.
                 identityManager.getCredential(portalUrl);
-                var userIdjs = document.getElementById('userId');
-                userIdjs.text = getUserInfo(identityManager.getCredential());
+                
             });
 
             // in the event that #sign-out is clicked
@@ -43,9 +44,13 @@ require([
                 window.location.reload();
             });
 
+            //CheckSignInStatus returns Promise<Credential> or error callback, 
+            //depending on if the user has signed in or not.
+            //If it returns a credential, the function is run to cease displaying "sign=in" text
+            //and start showing "sign-out" text.
             identityManager.checkSignInStatus(portalUrl).then(function() {
                 dom.byId('anonymousPanel').style.display = 'none';
-                dom.byId('personalizedPanel').style.display = 'block'
+                dom.byId('personalizedPanel').style.display = 'block';
             });
         }
             
