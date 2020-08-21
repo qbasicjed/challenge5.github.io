@@ -40,7 +40,7 @@ require([
             on(dom.byId("sign-out"), "click", function() {
                 //forget the credentials
                 identityManager.destroyCredentials();
-                //reload the window
+                //reload the window;polllb v
                 window.location.reload();
             });
 
