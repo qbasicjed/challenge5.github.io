@@ -24,9 +24,9 @@ require([
                 popup: false
               });
         
-            //lookup later//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //send the appID and popup state to be registered.
             identityManager.registerOAuthInfos([info]);
-            //^-- another source referred to the object as esriId
+            //^-- another source used esriId instead of identityManager
 
             // in the event that #sign-in is clicked
             on(dom.byId("sign-in"), "click", function() {
@@ -40,17 +40,25 @@ require([
             on(dom.byId("sign-out"), "click", function() {
                 //forget the credentials
                 identityManager.destroyCredentials();
-                //reload the window;polllb v
+                //reload the window;
                 window.location.reload();
             });
+
 
             //CheckSignInStatus returns Promise<Credential> or error callback, 
             //depending on if the user has signed in or not.
             //If it returns a credential, the function is run to cease displaying "sign=in" text
-            //and start showing "sign-out" text.
+            //and start showing "sign-out" text along with the items.
             identityManager.checkSignInStatus(portalUrl).then(function() {
+                //login/logout 
                 dom.byId('anonymousPanel').style.display = 'none';
                 dom.byId('personalizedPanel').style.display = 'block';
+
+                //change the heading from "no items found"  
+                dom.byId('itemsList').element.textContent = 'Here are your items';
+                //content
+                dom.byId('itemsList').style.display = 'flex';
+
             });
         }
             

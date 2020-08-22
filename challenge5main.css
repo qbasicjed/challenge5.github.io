@@ -10,6 +10,9 @@ div{
     display: none;
 }
 
+.flex{
+    flex-wrap: wrap;
+}
 
 #personalizedPanel{
     padding: 5px; 
@@ -23,7 +26,13 @@ div{
 #userId {
     font-weight: bold;
 }
-
+#itemsList {
+    width: 100em;
+    margin: 10em;
+    text-align: center;
+    line-height: 90em;
+    font-size: 15em;
+}
 
 .action {
     color: rgb(0, 140, 255);
