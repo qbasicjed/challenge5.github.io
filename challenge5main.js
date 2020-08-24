@@ -52,7 +52,7 @@ require([
                 //login/logout 
                 dom.byId('anonymousPanel').style.display = 'none';
                 dom.byId('personalizedPanel').style.display = 'block';
-                dom.byId('userId').textContent = Credential.username;
+                dom.byId('userId').innerText = Credential.username;
                 //change the heading from "no items found"  
                 dom.byId('itemsList').element.textContent = 'Here are your items';
                 //content
