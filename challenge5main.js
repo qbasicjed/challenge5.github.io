@@ -52,7 +52,7 @@ require([
                 //login/logout 
                 dom.byId('anonymousPanel').style.display = 'none';
                 dom.byId('personalizedPanel').style.display = 'block';
-
+                dom.byId('userId').textContent = Credential.username;
                 //change the heading from "no items found"  
                 dom.byId('itemsList').element.textContent = 'Here are your items';
                 //content
@@ -66,9 +66,8 @@ portal.load().then(function() {
   // Create query parameters for the portal search
   var queryParams = new PortalQueryParams({
     query: "owner:" + portal.user.username,
-    sortField: "numViews",
-    sortOrder: "desc",
-    num: 20
+    sortField: "type",
+    num: 100
   });
 
   // Query the items based on the queryParams created from portal above
