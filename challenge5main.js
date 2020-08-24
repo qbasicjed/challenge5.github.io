@@ -60,7 +60,7 @@ require([
 
                 var portal = new Portal();
 // Setting authMode to immediate signs the user in once loaded
-portal.authMode = "immediate";
+//portal.authMode = "immediate";
 // Once loaded, user is signed in
 portal.load().then(function() {
   // Create query parameters for the portal search
