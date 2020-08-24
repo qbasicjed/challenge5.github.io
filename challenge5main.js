@@ -59,21 +59,30 @@ require([
                 dom.byId('itemsList').style.display = 'flex';
 
                 var portal = new Portal();
+                var queryParams = new PortalQueryParams({
+                    query: "owner:" + portal.user.username,
+                    sortField: "type",
+                    num: 100
+                  });
+
+                    // Query the items based on the queryParams created from portal above
+  portal.queryItems(queryParams).then(createGallery);
+
 // Setting authMode to immediate signs the user in once loaded
 //portal.authMode = "immediate";
 // Once loaded, user is signed in
-portal.load().then(function() {
-  // Create query parameters for the portal search
-  var queryParams = new PortalQueryParams({
-    query: "owner:" + portal.user.username,
-    sortField: "type",
-    num: 100
-  });
+// portal.load().then(function() {
+//   // Create query parameters for the portal search
+//   var queryParams = new PortalQueryParams({
+//     query: "owner:" + portal.user.username,
+//     sortField: "type",
+//     num: 100
+//   });
 
   // Query the items based on the queryParams created from portal above
-  portal.queryItems(queryParams).then(createGallery);
+  //portal.queryItems(queryParams).then(createGallery);
 });
             });
-        }
+        //}
             
-)
+//)
