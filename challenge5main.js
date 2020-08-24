@@ -52,9 +52,9 @@ require([
                 //login/logout 
                 dom.byId('anonymousPanel').style.display = 'none';
                 dom.byId('personalizedPanel').style.display = 'block';
-                dom.byId('userId').style.textContent = Credential.userId;
+                //dom.byId('userId').style.textContent = Credential.userId;
                 //change the heading from "no items found"  
-                dom.byId('itemsList').element.textContent = 'Here are your items';
+                //dom.byId('itemsList').element.textContent = 'Here are your items';
                 //content
                 dom.byId('itemsList').style.display = 'flex';
 
