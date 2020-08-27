@@ -8,9 +8,6 @@ require([
     var anonPanelElement = document.getElementById("anonymousPanel");
     var userIdElement = document.getElementById("userId");
 
-    //specify portal
-    var 
-
     //specify authorization information for a redirect
     var info = new OAuthInfo({
         appId: "tODxtel2axughbeR", //a.k.a. clientID
