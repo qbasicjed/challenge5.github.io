@@ -11,7 +11,7 @@ require([
     //specify authorization information for a redirect
     var info = new OAuthInfo({
         appId: "tODxtel2axughbeR", //a.k.a. clientID
-        portalUrl: "https://www.arcgis.com/sharing",
+        //portalUrl: "https://www.arcgis.com/sharing",
         popup: false
     });
 
