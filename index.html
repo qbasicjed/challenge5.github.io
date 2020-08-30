@@ -139,12 +139,7 @@
 
           items.results.forEach(function (item) {
 
-            var htmlTagFragment = "";
-            item.results.forEach(function (tag) {
-                htmlTagFragment += 
-                '<div class="esri-tags-container">'
-                ? '<div class="esri-tags">' + (item.tags.tag || "") + "</div>"
-                : '<div class="esri-tags esri-null-tags">Item has no tags</div>'})
+            
             htmlFragment +=
               '<div class="esri-item-container">' +
               (item.thumbnailUrl
@@ -156,6 +151,15 @@
                 ? '<div class="esri-title">' + (item.title || "") + "</div>"
                 : '<div class="esri-title esri-null-title">Title not available</div>') +
               "</div>";
+
+            var htmlTagFragment = "";
+            item.tags.results.forEach(function (tag) {
+                htmlTagFragment += 
+                '<div class="esri-tags-container">'
+                (item.tags.tag
+                ? '<div class="esri-tags">' + (item.tags.tag || "") + "</div>"
+                : '<div class="esri-tags esri-null-tags">Item has no tags</div>')
+                + "</div>"})
           });
           document.getElementById("itemGallery").innerHTML = htmlFragment;
         }
