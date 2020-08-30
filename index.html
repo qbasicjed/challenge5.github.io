@@ -58,6 +58,10 @@
         color: #999999;
       }
 
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+      }
       .action {
         color: blue;
         cursor: pointer;
@@ -138,6 +142,15 @@
           var htmlFragment = "";
 
           items.results.forEach(function (item) {
+
+            var tagSection = "";
+
+            item.tags.results.forEach(function (tag){
+              tagSection += 
+                (tag
+                  ? tag
+                  : "")
+            })
             htmlFragment +=
               '<div class="esri-item-container">' +
               (item.thumbnailUrl
@@ -148,7 +161,20 @@
               (item.title
                 ? '<div class="esri-title">' + (item.title || "") + "</div>"
                 : '<div class="esri-title esri-null-title">Title not available</div>') +
+              (tags
+                ? '<div class="tags">' + (tags) + "</div>"
+                : '<div class="tags">No Tags</div>'
+              )
               "</div>";
+
+            // var htmlTagFragment = "";
+            // item.results.forEach(function (tag) {
+            //     htmlTagFragment += 
+            //     '<div class="esri-tags-container">'
+            //     (item.tags.tag
+            //     ? '<div class="esri-tags">' + (item.tags.tag || "") + "</div>"
+            //     : '<div class="esri-tags esri-null-tags">Item has no tags</div>')
+            //     + "</div>"})
           });
           document.getElementById("itemGallery").innerHTML = htmlFragment;
         }
