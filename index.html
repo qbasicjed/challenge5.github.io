@@ -143,14 +143,14 @@
 
           items.results.forEach(function (item) {
 
-            var tagSection = "";
+            // var tagSection = "";
 
-            item.results.forEach(function (tags){
-              tagSection += 
-                (tags
-                  ? tags
-                  : "")
-            })
+            // item.results.forEach(function (tags){
+            //   tagSection += 
+            //     (tags
+            //       ? tags
+            //       : "")
+            // })
             htmlFragment +=
               '<div class="esri-item-container">' +
               (item.thumbnailUrl
@@ -161,10 +161,11 @@
               (item.title
                 ? '<div class="esri-title">' + (item.title || "") + "</div>"
                 : '<div class="esri-title esri-null-title">Title not available</div>') +
-              (tagSection
-                ? '<div class="tags">' + (tagSection) + "</div>"
-                : '<div class="tags">No Tags</div>'
-              )
+              // (tagSection
+              //   ? '<div class="tags">' + (tagSection) + "</div>"
+              //   : '<div class="tags">No Tags</div>'
+              // )
+
               "</div>";
 
             // var htmlTagFragment = "";
