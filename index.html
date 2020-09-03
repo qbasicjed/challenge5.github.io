@@ -58,7 +58,7 @@
         color: #999999;
       }
 
-      .tags {
+      .tagsClass {
         display: flex;
         flex-wrap: wrap;
       }
@@ -143,7 +143,7 @@
 
           items.results.forEach(function (item) {
 
-            // var tagSection = "";
+            var tagSection = "";
 
             // item.results.forEach(function (tags){
             //   tagSection += 
@@ -160,12 +160,23 @@
                 : '<div class="esri-image esri-null-image">Thumbnail not available</div>') +
               (item.title
                 ? '<div class="esri-title">' + (item.title || "") + "</div>"
-                : '<div class="esri-title esri-null-title">Title not available</div>') +
+                : '<div class="esri-title esri-null-title">Title not available</div>');
+
+              tagSection =
+                  '<div class="tagContainer">';
+              item.tags.forEach(function(tag){
+                tagSection +=
+                  (tag
+                    ? '<div class="tags">' + (tag || "") + "</div>"
+                    : '<div class="tags">No Tags</div>'
+                  );
+              });
+              tagSection += '</div>';
               // (tagSection
               //   ? '<div class="tags">' + (tagSection) + "</div>"
               //   : '<div class="tags">No Tags</div>'
               // )
-
+              htmlFragment += tagSection +
               "</div>";
 
             // var htmlTagFragment = "";
