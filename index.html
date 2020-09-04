@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<!--Project name: Challenge 5-->
-<!--This site was created in an effort to demonstrate how to allow a user to login and manipulate items.-->
-<!--Jordan Dunlap-->
-<!--This code is based upon a code sample found at https://developers.arcgis.com/javascript/latest/guide/access-services-with-oauth-2/-->
+<!--This code started as a code sample found at https://developers.arcgis.com/javascript/latest/sample-code/identity-oauth-basic/index.html-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      ArcGIS items
+    </title>
 
-        <title>Login and Access Items Challenge</title>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.16/esri/themes/dark/main.css"
+    />
 
-        <!--local css-->
-        <link rel="stylesheet" type=text/css href="challenge5main.css"/>
-        <!--esri css-->
-        <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css">
-        <!--arcGis javascript-->
-        <script src="https://js.arcgis.com/4.16/"></script>
-        <!--local javascript-->
-        <script src="challenge5main.js"></script>
-    </head>
-    <body>
-        <div id="anonymousPanel">
-            <h4><span id="sign-in" class="action">Sign-In</span> to manage your items</h4>
-        </div>
-        
-        <div id="personalizedPanel">
-            <!--Still have to add in javascript to change the userId text value from the generatetoken.userinfo-->
-            <h4>Welcome, <span id="userId"></span> &nbsp; &nbsp;</h4>
-            <h5><span id="sign-out" class="action">Sign-out</span></h5>
-        </div>
+    <script src="https://js.arcgis.com/4.16/"></script>
+    <style src="items.css"></style>
+    <script source="items.js"></script>
+  </head>
 
-        <!--main content-->
-        <div id="viewDiv">
-            <!--this heading will change text when the user signs in-->
-            <h2 id="itemHead">No Items Found</h2>
-            <div id="itemsList" class="flex"></div>
-        </div>
-    </body>
-</html> 
+  <body>
+    <div
+      id="anonymousPanel"
+      style="display: none; padding: 5px; text-align: center;"
+    >
+      <span id="sign-in" class="action">Sign In</span> and view your ArcGIS
+      Online items.
+    </div>
+
+    <div
+      id="personalizedPanel"
+      style="display: none; padding: 5px; text-align: center;"
+    >
+      Welcome <span id="userId" style="font-weight: bold;"></span> &nbsp;-&nbsp;
+      <span id="sign-out" class="action">Sign Out</span>
+    </div>
+
+    <div id="itemGallery" class="esri-item-gallery" style="width: 100%;"></div>
+  </body>
+</html>
