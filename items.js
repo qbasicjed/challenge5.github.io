@@ -108,13 +108,13 @@ require([
 
           //start the tag section with an opening div tag
           tagSection =
-              '<div class="tagContainer">';
+              '<div class="tagContainer">Tags: ';
           //for each index(which we name "tag") in the tags array(part of the item object),     
           item.tags.forEach(function(tag){
             //append a new tag to the string  
             tagSection +=
               (tag
-                ? '<div class="tags">' + (tag || "") + "</div>"
+                ? '<div class="tags">' + (tag || "") + ", </div>"
                 //in case there are no tags
                 : '<div class="tags">No Tags</div>'
               );
