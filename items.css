@@ -44,6 +44,7 @@ html,
       .tagsClass {
         display: flex;
         flex-wrap: wrap;
+        display: inline;
       }
       .action {
         color: rgb(11, 136, 0);
