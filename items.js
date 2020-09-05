@@ -114,7 +114,7 @@ require([
             //append a new tag to the string  
             tagSection +=
               (tag
-                ? '<div class="tags">' + (tag || "") + ", </div>"
+                ? '<div class="tags action">' + (tag || "") + ", </div>"
                 //in case there are no tags
                 : '<div class="tags">No Tags</div>'
               );
