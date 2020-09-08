@@ -75,6 +75,16 @@ require([
     }
 
     function createGallery(items) {
+        function addTag(item){
+            document.getElementById("test").innerHTML = 
+            item.title
+            //show it below the image
+            ? '<div class="esri-title">' + (item.title || "") + "</div>"
+            //otherwise show alternate text
+            : '<div class="esri-title esri-null-title">Title not available</div>';
+          }
+
+
       //populate the items section of the page
       
       
@@ -126,14 +136,7 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
-          function addTag(item){
-            document.getElementById("test").innerHTML = 
-            item.title
-            //show it below the image
-            ? '<div class="esri-title">' + (item.title || "") + "</div>"
-            //otherwise show alternate text
-            : '<div class="esri-title esri-null-title">Title not available</div>');
-          }
+
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
