@@ -90,7 +90,7 @@ require([
         //append to the htmlFragment with html code to produce for each item.
         htmlFragment +=
           //start tag for the produced container for an item
-          '<div class="esri-item-container">' +
+          '<div class="esri-item-container" onclick="addTag(item)">' +
           //if the item.thumbnailUrl is present and valid
           (item.thumbnailUrl
             //add a div with the image at the url as the background image
@@ -126,6 +126,14 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
+          function addTag(item){
+            document.getElementById("test").innerHTML = 
+            item.title
+            //show it below the image
+            ? '<div class="esri-title">' + (item.title || "") + "</div>"
+            //otherwise show alternate text
+            : '<div class="esri-title esri-null-title">Title not available</div>');
+          }
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
