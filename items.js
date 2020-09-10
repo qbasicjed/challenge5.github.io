@@ -142,7 +142,7 @@ require([
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
       function addTag(item){
-          document.getElementById("test").innerHTML = <h1>You clicked a thing</h1>
+          document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
       }
     }
   });
