@@ -117,9 +117,7 @@ require([
             //otherwise show alternate text
             : '<div class="esri-title esri-null-title">Title not available</div>');//end of appending to htmlFragment for now
 
-            function addTag(item){
-                document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
-            }
+            
           //start the tag section with an opening div tag
           tagSection =
               '<div class="tagContainer"><div class="action"  onclick="addTag(item)">Tags: </div>';
@@ -140,7 +138,9 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
-          
+          function addTag(item){
+            document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
+          }
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
