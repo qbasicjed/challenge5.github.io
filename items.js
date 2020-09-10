@@ -91,6 +91,8 @@ require([
       //create a string to be appended to based on query results
       var htmlFragment = "";
 
+      var idForFunctionCall = 0;
+
       //loop through each index in the items array and call each one item
       items.results.forEach(function (item) {
 
@@ -120,7 +122,9 @@ require([
             
           //start the tag section with an opening div tag
           tagSection =
-              '<div class="tagContainer"><div class="action" id=item>Tags: </div>';
+              '<div class="tagContainer"><div class="action" id=' + 
+              idForFunctionCall
+                + '>Tags: </div>';
           //for each index(which we name "tag") in the tags array(part of the item object),     
           item.tags.forEach(function(tag){
             //append a new tag to the string  
@@ -138,6 +142,8 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
+          idForFunctionCall++;
+          
           function addTag(item){
             document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
           }
