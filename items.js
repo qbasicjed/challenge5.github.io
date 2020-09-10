@@ -100,7 +100,7 @@ require([
         //append to the htmlFragment with html code to produce for each item.
         htmlFragment +=
           //start tag for the produced container for an item
-          '<div class="esri-item-container" onclick="addTag(item)">' +
+          '<div class="esri-item-container">' +
           //if the item.thumbnailUrl is present and valid
           (item.thumbnailUrl
             //add a div with the image at the url as the background image
@@ -118,13 +118,13 @@ require([
 
           //start the tag section with an opening div tag
           tagSection =
-              '<div class="tagContainer">Tags: ';
+              '<div class="tagContainer"><div class="action"  onclick="addTag(item)>Tags: </div>';
           //for each index(which we name "tag") in the tags array(part of the item object),     
           item.tags.forEach(function(tag){
             //append a new tag to the string  
             tagSection +=
               (tag
-                ? '<div class="tags action">' + (tag || "") + ", </div>"
+                ? '<div class="tags">' + (tag || "") + ", </div>"
                 //in case there are no tags
                 : '<div class="tags">No Tags</div>'
               );
@@ -140,5 +140,9 @@ require([
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
+
+      function addTag(item){
+          document.getElementById("test").innerHTML = <h1>You clicked a thing</h1>
+      }
     }
   });
