@@ -118,7 +118,7 @@ require([
 
           //start the tag section with an opening div tag
           tagSection =
-              '<div class="tagContainer"><div class="action"  onclick="addTag(item)>Tags: </div>';
+              '<div class="tagContainer"><div class="action"  onclick="addTag(item)">Tags: </div>';
           //for each index(which we name "tag") in the tags array(part of the item object),     
           item.tags.forEach(function(tag){
             //append a new tag to the string  
@@ -142,7 +142,7 @@ require([
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
       function addTag(item){
-          document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
+          document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>'
       }
     }
   });
