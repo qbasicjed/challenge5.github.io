@@ -136,13 +136,13 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
-
+          function addTag(item){
+            document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>'
+        }
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
-      function addTag(item){
-          document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>'
-      }
+
     }
   });
