@@ -143,7 +143,7 @@ require([
           "</div>";
 
           idForFunctionCall++;
-          
+
           function addTag(item){
             document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
           }
@@ -151,6 +151,14 @@ require([
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
+      for(var i = 0; i <= idForFunctionCall; i++){
+        document.getElementById(i).onclick = function()
+        {addTag(i)};
+
+        function addTag(itemId){
+            console.log(itemId);
+        }
+      }
 
     }
   });
