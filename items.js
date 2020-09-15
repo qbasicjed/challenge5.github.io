@@ -151,7 +151,7 @@ require([
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
-      for(var i = 0; i <= idForFunctionCall; i++){
+      for(var i = 0; i < idForFunctionCall; i++){
         document.getElementById(i).onclick = function()
         {addTag(i)};
 
