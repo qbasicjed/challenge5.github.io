@@ -157,7 +157,7 @@ require([
         document.getElementById(i).onclick = function()
         {addTag(1);
         console.log(i);};
-
+console.log(i);
         function addTag(itemId){
             console.log(itemId);
         }
