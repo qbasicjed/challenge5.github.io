@@ -154,9 +154,10 @@ require([
       idForFunctionCall--;
       for(var i = 0; i < idForFunctionCall; i++){
         console.log(i);
-        document.getElementById(i).onclick = function()
-        {addTag(1);
-        console.log(i);};
+        var j = i;
+        document.getElementById(j).onclick = function()
+        {addTag(j);
+        console.log(j);};
 console.log(i);
         function addTag(itemId){
             console.log(itemId);
