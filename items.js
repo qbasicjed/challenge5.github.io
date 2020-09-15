@@ -151,7 +151,7 @@ require([
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
-      idForFunctionCall--;
+      
       for(var i = 0; i < idForFunctionCall; i++){
         console.log(i);
         var j = i;
