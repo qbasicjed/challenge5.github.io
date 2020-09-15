@@ -152,8 +152,10 @@ require([
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
       for(var i = 0; i < idForFunctionCall; i++){
+        console.log(i);
         document.getElementById(i).onclick = function()
-        {addTag(i)};
+        {addTag(i);
+        console.log(i);};
 
         function addTag(itemId){
             console.log(itemId);
