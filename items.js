@@ -151,17 +151,45 @@ require([
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
+      function addTag(itemId){
+        console.log('added a tag' + itemId);
+      }
       
-      for(var i = 0; i < idForFunctionCall; i++){
-        console.log(i);
-        var j = i;
-        document.getElementById(j).onclick = function()
-        {addTag((document.getElementById).id);};
+      const setOnclick = async _ => {
+        console.log('Start')
 
-        function addTag(itemId){
-            console.log(itemId);
+        for (let index = 0; index < idForFunctionCall; index++){
+          //set the onclick for the item
+          document.getElementById(index).onclick = await addTag(index);
+          console.log('Set onclick for item' + index);
         }
       }
+
+      // for(var i = 0; i < idForFunctionCall; i++){
+      //   console.log(i);
+      //   document.getElementById(j).onclick = async _ => {
+      //     return 
+      //   }
+      //   {addTag(i)};
+
+      //   function addTag(itemId){
+      //       console.log(itemId);
+      //   }
+
+        //anatomy of a promise
+        //function addTag(itemId)
+        //.then(data => {/*do stuff with data*/})
+        //.catch(err => {/* handle the error*/})
+
+        //constructing of a promise
+        //const promise = new Promise((resolve, reject) => {
+        //  /*do something here*/
+        //  if something
+        //  return resolve(x);
+        //  else
+        //  return reject(y);  ////???
+        //})
+      //}
 
     }
   });
