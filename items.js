@@ -75,22 +75,35 @@ require([
     }
 
     function createGallery(items) {
+        // function addTag(item){
+        //     document.getElementById("test").innerHTML = 
+        //     item.title
+        //     //show it below the image
+        //     ? '<div class="esri-title">' + (item.title || "") + "</div>"
+        //     //otherwise show alternate text
+        //     : '<div class="esri-title esri-null-title">Title not available</div>';
+        //   }
+
+
       //populate the items section of the page
       
       
       //create a string to be appended to based on query results
       var htmlFragment = "";
 
+      var idForFunctionCall = 0;
+
       //loop through each index in the items array and call each one item
       items.results.forEach(function (item) {
 
+        
         //make a separate string for the tags for clarity
         var tagSection = "";
 
         //append to the htmlFragment with html code to produce for each item.
         htmlFragment +=
           //start tag for the produced container for an item
-          '<div class="esri-item-container" onclick="addTag(item)">' +
+          '<div class="esri-item-container">' +
           //if the item.thumbnailUrl is present and valid
           (item.thumbnailUrl
             //add a div with the image at the url as the background image
@@ -106,15 +119,18 @@ require([
             //otherwise show alternate text
             : '<div class="esri-title esri-null-title">Title not available</div>');//end of appending to htmlFragment for now
 
+            
           //start the tag section with an opening div tag
           tagSection =
-              '<div class="tagContainer">Tags: ';
+              '<div class="tagContainer"><div class="action" id=' + 
+              idForFunctionCall
+                + '>Tags: </div>';
           //for each index(which we name "tag") in the tags array(part of the item object),     
           item.tags.forEach(function(tag){
             //append a new tag to the string  
             tagSection +=
               (tag
-                ? '<div class="tags action">' + (tag || "") + ", </div>"
+                ? '<div class="tags">' + (tag || "") + ", </div>"
                 //in case there are no tags
                 : '<div class="tags">No Tags</div>'
               );
@@ -126,16 +142,54 @@ require([
           htmlFragment += tagSection +
           "</div>";
 
+          idForFunctionCall++;
+
           function addTag(item){
-            document.getElementById("test").innerHTML = 
-            item.title
-            //show it below the image
-            ? '<div class="esri-title">' + (item.title || "") + "</div>"
-            //otherwise show alternate text
-            : '<div class="esri-title esri-null-title">Title not available</div>');
+            document.getElementById("test").innerHTML = '<h1>You clicked a thing</h1>';
           }
       });
       //generate the code string specified in htmlFragment
       document.getElementById("itemGallery").innerHTML = htmlFragment;
+
+      function addTag(itemId){
+        console.log(itemId);
+      }
+      
+      const setOnclick = async _ => {
+        console.log('Start')
+
+        for (let index = 0; index < idForFunctionCall; index++){
+          //set the onclick for the item
+          document.getElementById(index).onclick = await addTag(index);
+          console.log('Set onclick for item' + index);
+        }
+      }
+
+      // for(var i = 0; i < idForFunctionCall; i++){
+      //   console.log(i);
+      //   document.getElementById(j).onclick = async _ => {
+      //     return 
+      //   }
+      //   {addTag(i)};
+
+      //   function addTag(itemId){
+      //       console.log(itemId);
+      //   }
+
+        //anatomy of a promise
+        //function addTag(itemId)
+        //.then(data => {/*do stuff with data*/})
+        //.catch(err => {/* handle the error*/})
+
+        //constructing of a promise
+        //const promise = new Promise((resolve, reject) => {
+        //  /*do something here*/
+        //  if something
+        //  return resolve(x);
+        //  else
+        //  return reject(y);  ////???
+        //})
+      //}
+
     }
   });
