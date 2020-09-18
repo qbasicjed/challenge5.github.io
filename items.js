@@ -152,7 +152,7 @@ require([
       document.getElementById("itemGallery").innerHTML = htmlFragment;
 
       function addTag(itemId){
-        console.log('added a tag' + itemId);
+        console.log(itemId);
       }
       
       const setOnclick = async _ => {
